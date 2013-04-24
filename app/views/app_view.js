@@ -23,5 +23,6 @@ module.exports = BaseAppView.extend({
     this.app.on('change:loading', function(app, loading) {
       $body.toggleClass('loading', loading);
     }, this);
+    setTimeout(function () {   window.scrollTo(0, 1); }, 1000);
   }
 });

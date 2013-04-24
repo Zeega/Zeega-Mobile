@@ -4,21 +4,10 @@ var Zeega = require('../models/zeega'),
 module.exports = Base.extend({
   model: Zeega,
   url: function() {
-    return '/api/items/search?type=project&limit=15&sort=date-desc';
+    return '/api/items/search?type=project&limit=20&fields=id,title,display_name,user_id,thumbnail_url&sort=date-desc';
   },
   parse: function( response ){
-
-    //api returns unpublished Zeegas, need to fix that
-    var items = [];
-    _.each(response.items, function( item ){
-
-        if( item.text.layers.length > 0 ){
-            items.push( item );
-        }
-
-    });
-
-    return items;
+    return response.items;
   }
 });
 module.exports.id = 'Zeegas';

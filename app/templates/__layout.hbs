@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <!-- standard viewport tag to set the viewport to the device's width
+            , Android 2.3 devices need this so 100% width works properly and
+            doesn't allow children to blow up the viewport width-->
+        <meta name="viewport" id="vp" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" />
+        <!-- width=device-width causes the iPhone 5 to letterbox the app, so
+            we want to exclude it for iPhone 5 to allow full screen apps -->
+        <meta name="viewport" id="vp" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)" />
+        <title>Zeega</title>
+        <link rel="shortcut icon" type="image/x-icon" href="/images/zeega.ico">
+        <link href="/styles.css" media="screen" rel="stylesheet" type="text/css" />
+  </head>
+    </head>
+
+    <body>
+      <section id="content" class="container">
+        
+        
+        <header>
+          <div class="ZEEGA-tab"><img src="images/zeega-logo-white-30.png"></div>
+          <div class="cover">
+            <span class="headline">
+              <h2> Make the web you want</h2>
+            </span>
+          </div>
+        </header>
+
+
+        {{{body}}}
+      
+
+
+      </section>
+
+
+      <div class="underlay-wrapper">
+          <div class="underlay">
+            <div class="scroller">
+              <ul class="underlay-menu">
+                  <li class="ZEEGA-home header">
+                      <div>Home</div>
+                  </li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+ 
+
+      <script src="/mergedAssets.js"></script>
+      <script>
+      (function() {
+        var App = window.App = new (require('app/app'))({{json appData}});
+        App.bootstrapData({{json bootstrappedData}});
+        App.start();
+      })();
+      </script>
+    
+    </body>
+
+
+</html>
+
+
+
+
+

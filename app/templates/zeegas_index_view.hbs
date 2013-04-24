@@ -1,0 +1,19 @@
+<h1>Latest Zeegas &darr;</h1>
+
+
+{{#each models}}
+  <article style="background-image: url({{ text.cover_image }});" >
+    <div class="info-overlay">
+        <h1>{{title}}</h1>
+        <h2>
+            <a href="http://zeega.com/profile/{{user_id}}" target="blank">
+                <div class="profile-token"><img src="https://twimg0-a.akamaihd.net/profile_images/2831697898/6b5842b8c0d83bf7b8322ec01be59cf3.jpeg"></div>
+                <div class="profile-name">{{display_name}}</div>
+            </a>
+        </h2>
+    </div>
+    <a href="http://zeega.com/m/{{id}}" class="mobile-play"><img src="images/start-button.png"></a>
+
+  </article>
+{{/each}}
+

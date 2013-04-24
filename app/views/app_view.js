@@ -9,13 +9,17 @@ module.exports = BaseAppView.extend({
   },
 
   openGrave: function() {
-    $("#content").animate({"left":"43%"}, 500 );
+    $("#content").addClass("nav-open").animate({"left":"43%"}, 500 );
+    $(".scroller").fadeIn();
     $(".ZEEGA-tab").fadeOut("fast");
   },
 
   closeGrave: function() {
-    $("#content").animate({"left":0}, 500 );
+    $("#content").removeClass("nav-open").animate({"left":0}, 500, function(){
+      $(".scroller").hide();
+    });
     $(".ZEEGA-tab").fadeIn("fast");
+
   },
 
   postInitialize: function() {

@@ -26,6 +26,7 @@ body
   &.nav-open
     height: 100%
     position: fixed
+    display: inline;
     -webkit-transform: translate3d(200px,0,0);
     -moz-transform: translate3d(200px,0,0);
     -o-transform: translate3d(200px,0,0);
@@ -35,6 +36,13 @@ body
     background: url(images/graphpaper.png)
     position: fixed
     z-index: 1
+
+  &.content-overlay
+    z-index: 3
+    position: fixed
+    display: none
+    &.nav-open
+      display: block
 
 
 #content

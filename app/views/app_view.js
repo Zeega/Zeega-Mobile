@@ -4,21 +4,19 @@ var $body = $('body');
 
 module.exports = BaseAppView.extend({
   events: {
-    "click .ZEEGA-tab":"openGrave",
-    "click .ZEEGA-home":"closeGrave"
+    "click .ZEEGA-tab": "openCoffin",
+    "click .ZEEGA-home": "closeCoffin",
+    "click .content-overlay": "closeCoffin"
   },
 
-  openGrave: function() {
-    $(".slide").addClass("nav-open");
+  openCoffin: function() {
+    $(".action").addClass("nav-open");
     $(".scroller").fadeIn();
-    $(".ZEEGA-tab").fadeOut("fast");
   },
 
-  closeGrave: function() {
-    $(".slide").removeClass("nav-open");
+  closeCoffin: function() {
+    $(".action").removeClass("nav-open");
     $(".scroller").fadeOut();
-    $(".ZEEGA-tab").fadeIn("fast");
-
   },
 
   postInitialize: function() {

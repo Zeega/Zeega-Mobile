@@ -1,5 +1,5 @@
 module.exports = function(match) {
-    match("m",                    "home#index");
-    match("m/profile/:id",         "user#index");
-    match("m/project/new",         "home#edit");
+    match("",                    "home#index");
+    match("profile/:id",         "user#index");
+    match("project/new",         "home#edit");
 };

@@ -7,18 +7,29 @@
           </div>
 </header>
 
+<div class="message-overlay">
+  <span class="close">close</span>
+  <div class="message">
+    <h2>Mobile creation is coming to Zeega soon! </h2>
+    <h2>For now, visit Zeega on a desktop browser to create your own Zeegas</h2>
+  </div>
+</div>
 
 <div class="zeegas-wrapper">
-    <h1>Latest Zeegas &darr;</h1>
-
+    <h1>Latest Zeegas &darr;{{this.route}}{{this.editable}}{{editable}}</h1> 
 
 
     {{#each models}}
-      <article {{#if thumbnail_url }} style="background-image: url({{ thumbnail_url }});" {{/if}} >
+      {{#if thumbnail_url }} 
+      <article style="background-image: url({{ thumbnail_url }});" >
+      {{else}}
+      <article>
+      {{/if}}
+
         <div class="info-overlay">
             <h1>{{title}}</h1>
             <h2>
-                <a href="profile/{{user_id}}" target="blank">
+                <a href="/profile/{{user_id}}" target="blank">
                     <div class="profile-token"><img src="{{user_thumbnail}}"></div>
                     <div class="profile-name">{{display_name}}</div>
                 </a>

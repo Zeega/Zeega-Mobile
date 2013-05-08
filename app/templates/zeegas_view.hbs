@@ -4,11 +4,15 @@
 
 
     {{#each models}}
-      <article {{#if thumbnail_url }} style="background-image: url({{ thumbnail_url }});" {{/if}} >
+      {{#if thumbnail_url }} 
+      <article style="background-image: url({{ thumbnail_url }});" >
+      {{else}}
+      <article>
+      {{/if}}
         <div class="info-overlay">
             <h1>{{title}}</h1>
             <h2>
-                <a href="profile/{{user_id}}" target="blank">
+                <a href="/profile/{{user_id}}" target="blank">
                     <div class="profile-token"><img src="{{user_thumbnail}}"></div>
                     <div class="profile-name">{{display_name}}</div>
                 </a>

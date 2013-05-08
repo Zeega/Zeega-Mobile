@@ -1,11 +1,10 @@
 <header>
           <div class="ZEEGA-tab action"></div>
           <div class="cover" {{#if background_image_url}} style ="background-image:url({{background_image_url}})" {{/if}}>
-          <div class="profile-token"><img src="{{thumbnail_url}}"></div>
+          <div class="profile-token-large"><img src="{{thumbnail_url}}"></div>
             <span class="headline">
               <h2>{{display_name}}</h2>
             </span>
           </div>
 </header>
-
 {{view "zeegas_view" collection_name="Zeegas" param_name="user" param_value=id lazy="true"}}

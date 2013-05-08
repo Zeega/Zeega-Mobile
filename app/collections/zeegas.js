@@ -4,13 +4,16 @@ var Zeega = require('../models/zeega'),
 module.exports = Base.extend({
   model: Zeega,
   url: function() {
-        
-    if (this.params.user == "undefined") {
-        return '/api/items/search?type=project&limit=20&fields=id,title,display_name,user_id,user_thumbnail,thumbnail_url&sort=date-desc';
+      
+    if (this.params.tag =="homepage") {
+        url = '/api/items/search?type=project&limit=20&fields=id,title,display_name,user_id,user_thumbnail,thumbnail_url&sort=date-desc&tags=:tag';
 
     } else {
-        return '/api/items/search?user=:user&type=project&limit=20&fields=id,title,display_name,user_id,user_thumbnail,thumbnail_url&sort=date-desc';
+        url = '/api/items/search?user=:user&type=project&limit=20&fields=id,title,display_name,user_id,user_thumbnail,thumbnail_url&sort=date-desc';
     }
+
+    console.log(this.params, url)
+    return url;
     
   },
   parse: function( response ){

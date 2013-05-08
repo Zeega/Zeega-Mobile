@@ -1,6 +1,6 @@
 var BaseView = require('./base_view');
 
 module.exports = BaseView.extend({
-  className: 'zeegas_index_view'
+  className: 'zeegas_view'
 });
-module.exports.id = 'ZeegasIndexView';
+module.exports.id = 'ZeegasView';

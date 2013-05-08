@@ -1,3 +1,4 @@
 module.exports = function(match) {
-  match('',                    'zeegas#index');
+  match('',                    'home#index');
+  match('profile/:id',         'user#index');
 };

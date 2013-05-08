@@ -5,8 +5,15 @@ var $body = $('body');
 module.exports = BaseAppView.extend({
   events: {
     "click .ZEEGA-tab": "openCoffin",
-    "click .ZEEGA-home": "closeCoffin",
+    "click .ZEEGA-home": "goHome",
     "click .content-overlay": "closeCoffin"
+  },
+
+  goHome: function(){
+    
+    this.closeCoffin();
+    this.app.router.navigate("/", {trigger: true});
+    console.log(this.app, this.app.router.current);
   },
 
   openCoffin: function() {

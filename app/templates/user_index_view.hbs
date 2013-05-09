@@ -1,9 +1,15 @@
 <header>
           <div class="ZEEGA-tab action"></div>
-          <div class="cover" {{#if background_image_url}} style ="background-image:url({{background_image_url}})" {{/if}}>
+          {{#if background_image_url}}
+          <div class="cover" style ="background-image:url({{background_image_url}})">
+          {{else}}
+          <div class="cover profile">
+          {{/if}}
+
           <div class="profile-token-large"><img src="{{thumbnail_url}}"></div>
             <span class="headline">
               <h2>{{display_name}}</h2>
+              <p class="bio">{{bio}}</p>
             </span>
           </div>
 </header>

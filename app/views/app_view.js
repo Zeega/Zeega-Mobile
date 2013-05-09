@@ -4,18 +4,27 @@ var $body = $('body');
 
 module.exports = BaseAppView.extend({
   events: {
+    "click": "logIt",
     "click .ZEEGA-tab": "openCoffin",
     "click .ZEEGA-home": "goHome",
-    "click .content-overlay": "closeCoffin"
+    "click .content-overlay": "closeCoffin",
+    "mousedown .message-overlay": "closeMessage"
   },
 
+  logIt: function(e){
+    console.log(e);
+    this.closeMessage();
+  },
   goHome: function(){
     
     this.closeCoffin();
     this.app.router.navigate("/", {trigger: true});
     console.log(this.app, this.app.router.current);
   },
-
+  closeMessage: function(){
+    this.app.router.navigate("/", {trigger: false});
+    $(".message-overlay").hide();
+  },
   openCoffin: function() {
     $(".action").addClass("nav-open");
     $(".scroller").fadeIn();

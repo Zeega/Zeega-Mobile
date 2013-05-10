@@ -12,7 +12,7 @@ module.exports = Base.extend({
         url = '/api/items/search?user=:user&type=project&limit=20&fields=id,title,display_name,user_id,user_thumbnail,thumbnail_url&sort=date-desc';
     }
 
-    console.log(this.params, url)
+
     return url;
     
   },

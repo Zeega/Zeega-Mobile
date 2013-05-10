@@ -1,11 +1,10 @@
-var BaseAppView = require('rendr/shared/base/app_view');
+var BaseAppView = require("rendr/shared/base/app_view");
 var Hammer = require("../hammer");
-var $body = $('body');
+var $body = $("body");
 
 module.exports = BaseAppView.extend({
   
   goHome: function(){ 
-    console.log("goHome")
     this.closeCoffin();
     if( this.app.router.currentFragment !== "" ){
       this.app.router.navigate("/", {trigger: true});
@@ -13,14 +12,12 @@ module.exports = BaseAppView.extend({
     
   },
   closeMessage: function(){
-    console.log("closeMessage")
     this.app.router.navigate("/", {trigger: false});
     $(".message-overlay").hide();
   },
   
 
   closeCoffin: function() {
-    console.log("closeCoffin")
     $(".action").removeClass("nav-open");
     $(".scroller").fadeOut();
     window.scrollTo(0, 1);

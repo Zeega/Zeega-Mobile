@@ -9,8 +9,9 @@ module.exports = BaseView.extend({
     toProfile: function( e ){
         this.app.router.navigate( "profile/" + $(e.currentTarget).data("id"), { trigger: true } );
     },
-    openCoffin: function() {
-        window.scrollTo(0, 1);
+    openCoffin: function( e ) {
+        console.log(e);
+        //window.scrollTo(0, 1);
         $(".action").addClass("nav-open");
         $(".scroller").fadeIn();
 

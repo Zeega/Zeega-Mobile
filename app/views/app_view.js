@@ -1,44 +1,49 @@
 var BaseAppView = require('rendr/shared/base/app_view');
-
+var Hammer = require("../hammer");
 var $body = $('body');
 
 module.exports = BaseAppView.extend({
-  events: {
-    "click": "logIt",
-    "click .ZEEGA-tab": "openCoffin",
-    "click .ZEEGA-home": "goHome",
-    "click .content-overlay": "closeCoffin",
-    "mousedown .message-overlay": "closeMessage"
-  },
-
-  logIt: function(e){
-    console.log(e);
-    this.closeMessage();
-  },
-  goHome: function(){
-    
+  
+  goHome: function(){ 
+    console.log("goHome")
     this.closeCoffin();
-    this.app.router.navigate("/", {trigger: true});
-    console.log(this.app, this.app.router.current);
+    if( this.app.router.currentFragment !== "" ){
+      this.app.router.navigate("/", {trigger: true});
+    }
+    
   },
   closeMessage: function(){
+    console.log("closeMessage")
     this.app.router.navigate("/", {trigger: false});
     $(".message-overlay").hide();
   },
-  openCoffin: function() {
-    $(".action").addClass("nav-open");
-    $(".scroller").fadeIn();
-  },
+  
 
   closeCoffin: function() {
+    console.log("closeCoffin")
     $(".action").removeClass("nav-open");
     $(".scroller").fadeOut();
+    window.scrollTo(0, 1);
   },
 
   postInitialize: function() {
-    this.app.on('change:loading', function(app, loading) {
-      $body.toggleClass('loading', loading);
-    }, this);
-    setTimeout(function () {   window.scrollTo(0, 1); }, 1000);
+    var closeMessage = $.proxy( this.closeMessage, this),
+        goHome = $.proxy( this.goHome, this),
+        closeCoffin =  $.proxy( this.closeCoffin, this);
+
+
+        Hammer($(".message-overlay")[0]).on("tap", function(event) {
+          closeMessage();
+          return false;
+        }, this);
+        Hammer($(".content-overlay")[0]).on("swipeleft", function(event) {
+          closeCoffin();
+          return false;
+        }, this);
+        Hammer($(".ZEEGA-home")[0]).on("tap", function(event) {
+          goHome();
+          return false;
+        }, this);
+        setTimeout(function () {  window.scrollTo(0, 1); }, 1000);
   }
 });

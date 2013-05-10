@@ -40,12 +40,16 @@
     margin-right: 20px
     border-radius: 0 0 2px 2px
     cursor: pointer
+
+    -webkit-perspective: 1000;
+    -webkit-backface-visibility: hidden;
+
     -webkit-transition: opacity .5s
     -moz-transition: opacity .5s
     -ms-transition: opacity .5s
     -o-transition: opacity .5s
     transition: opacity .5s
-    opacity: 1
+    opacity: .99
     &.nav-open
         opacity: 0
 

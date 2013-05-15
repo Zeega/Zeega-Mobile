@@ -10,13 +10,24 @@
       <article>
       {{/if}}
         <div class="info-overlay">
-            <h1>{{title}}</h1>
-            <h2>
-                <a href="/profile/{{user_id}}" target="blank">
-                    <div class="profile-token"><img src="{{user_thumbnail}}"></div>
-                    <div class="profile-name">{{display_name}}</div>
+            <div class="left-column">
+              <a href="/profile/{{user_id}}" >
+                <div class="profile-token"><img src="{{user_thumbnail}}"></div>
+               </a>
+            </div>
+            <div class="right-column">
+              <h1 class = "caption">{{title}}</h1>
+              
+              <div class="profile-name">
+                <a href="/profile/{{user_id}}" >
+                  {{display_name}}
                 </a>
-            </h2>
+                <span class="zeega-views"> <i class="icon-play icon-white"></i>&#9658; {{views}} views</span>
+              </div>
+              
+            </div>
+              
+        
         </div>
         <a href="http://zeega.com/m/{{id}}" class="mobile-play"></a>
 

@@ -6,10 +6,10 @@ module.exports = Base.extend({
   url: function() {
       
     if (this.params.tag =="homepage") {
-        url = '/api/items/search?type=project&limit=20&fields=id,title,display_name,user_id,user_thumbnail,thumbnail_url&sort=date-desc&tags=:tag';
+        url = '/api/items/search?type=project&limit=20&fields=id,title,display_name,user_id,views,user_thumbnail,thumbnail_url&sort=date-desc&tags=homepage';
 
     } else {
-        url = '/api/items/search?user=:user&type=project&limit=20&fields=id,title,display_name,user_id,user_thumbnail,thumbnail_url&sort=date-desc';
+        url = '/api/items/search?user=:user&type=project&limit=20&fields=id,title,views,display_name,user_id,user_thumbnail,thumbnail_url&sort=date-desc';
     }
 
 

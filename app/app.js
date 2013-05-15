@@ -7,9 +7,6 @@ module.exports = BaseApp.extend({
 
   // @client
   start: function() {
-
-    
-
     // Call 'super'.
     BaseApp.prototype.start.call(this);
   }

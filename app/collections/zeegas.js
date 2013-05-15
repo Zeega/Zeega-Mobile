@@ -17,6 +17,11 @@ module.exports = Base.extend({
     
   },
   parse: function( response ){
+
+    _.each(response.items, function(item){
+      item.hasOneView = ( item.views == 1 );
+    });
+
     return response.items;
   }
 });

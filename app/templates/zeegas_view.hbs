@@ -22,7 +22,16 @@
                 <a href="/profile/{{user_id}}" >
                   {{display_name}}
                 </a>
-                <span class="zeega-views"> <i class="icon-play icon-white"></i>&#9658; {{views}} views</span>
+                <span class="zeega-views">
+                  <i class="icon-play icon-white"></i>
+                   
+                  &#9658; {{views}}
+                  {{#if hasOneView }}
+                    view
+                  {{else}}
+                    views
+                  {{/if}}
+                </span>
               </div>
               
             </div>

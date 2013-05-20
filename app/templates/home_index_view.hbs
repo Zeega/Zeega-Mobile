@@ -10,7 +10,13 @@
 
 
 <div class="zeegas-wrapper">
-    <h1>Latest Zeegas &darr;{{this.route}}{{this.editable}}{{editable}}</h1> 
+    <h1>
+      {{#if params.tags }}
+      #{{params.tags}} &darr;
+      {{else}}
+      Latest Zeegas &darr;
+      {{/if}}
+    </h1> 
 
 
     {{#each models}}

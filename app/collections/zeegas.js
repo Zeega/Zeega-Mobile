@@ -5,7 +5,7 @@ module.exports = Base.extend({
   model: Zeega,
   url: function() {
       
-    if (this.params.tag =="homepage") {
+    if ( _.isUndefined(this.params.tags) ) {
         url = '/api/items/search?type=project&limit=10&fields=id,title,display_name,user_id,views,user_thumbnail,thumbnail_url&sort=date-desc&tags=homepage';
 
     } else {

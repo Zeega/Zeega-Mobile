@@ -4,7 +4,7 @@ var $body = $("body");
 
 module.exports = BaseAppView.extend({
   
-  goHome: function(){ 
+  goHome: function(){
     this.closeCoffin();
     if( this.app.router.currentFragment !== "" ){
       this.app.router.navigate("/", {trigger: true});
@@ -12,7 +12,7 @@ module.exports = BaseAppView.extend({
     
   },
   closeMessage: function(){
-    this.app.router.navigate("/", {trigger: false});
+    //this.app.router.navigate("/", {trigger: false});
     $(".message-overlay").hide();
   },
   

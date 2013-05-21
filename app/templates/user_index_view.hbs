@@ -5,8 +5,14 @@
           {{else}}
           <div class="cover profile">
           {{/if}}
-
-          <div class="profile-token-large"><img src="{{thumbnail_url}}"></div>
+            <span class ="join">
+              <h1>
+                <a href="/register">Join Zeega</a>
+              </h1>
+            </span>
+            <div class="profile-token-large">
+              <img src="{{thumbnail_url}}">
+            </div>
             <span class="headline">
               <h2>{{display_name}}</h2>
               <p class="bio">{{bio}}</p>
@@ -14,3 +20,4 @@
           </div>
 </header>
 {{view "zeegas_view" collection_name="Zeegas" param_name="user" param_value=id lazy="true"}}
+{{view "footer_view" }}

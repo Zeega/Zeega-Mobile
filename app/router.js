@@ -13,5 +13,6 @@ Router.prototype.postInitialize = function() {
 Router.prototype.trackImpression = function() {
   if (window._gaq) {
     _gaq.push(['_trackPageview']);
+    window.scrollTo(0, 1);
   }
 };

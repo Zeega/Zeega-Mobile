@@ -12,7 +12,7 @@ module.exports = BaseAppView.extend({
     
   },
   closeMessage: function(){
-    //this.app.router.navigate("/", {trigger: false});
+    this.app.router.navigate("/", {trigger: false});
     $(".message-overlay").hide();
   },
   

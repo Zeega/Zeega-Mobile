@@ -5,6 +5,7 @@ module.exports = BaseView.extend({
     postRender: function() {
         if( this.app.router.currentFragment == "project/new" ){
             $(".message-overlay").show();
+            $(".join").hide();
         }
     }
 });

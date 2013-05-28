@@ -11,16 +11,16 @@
       {{/if}}
         <div class="info-overlay">
             <div class="left-column">
-              <a href="/profile/{{user_id}}" >
-                <div class="profile-token"><img src="{{user_thumbnail}}"></div>
+              <a href="/profile/{{user.id}}" >
+                <div class="profile-token"><img src="{{user.thumbnail_url}}"></div>
                </a>
             </div>
             <div class="right-column">
               <h1 class = "caption">{{title}}</h1>
               
               <div class="profile-name">
-                <a href="/profile/{{user_id}}" >
-                  {{display_name}}
+                <a href="/profile/{{user.id}}" >
+                  {{user.display_name}}
                 </a>
                 <span class="zeega-views">
                   <i class="icon-play icon-white"></i>

@@ -17,11 +17,7 @@ module.exports = Base.extend({
     
   },
   parse: function( response ){
-
-    // _.each(response.projects, function(project){
-    //   item.hasOneView = ( project.views == 1 );
-    // });
-
+    this.meta.authenticated = response.request.user.authenticated;
     return response.projects;
   }
 });

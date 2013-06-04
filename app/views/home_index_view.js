@@ -7,6 +7,10 @@ module.exports = BaseView.extend({
             $(".message-overlay").show();
             $(".join").hide();
         }
+
+        if( !this.collection.meta.authenticated ){
+            $(".join").hide();
+        }
     }
 });
 module.exports.id = "HomeIndexView";

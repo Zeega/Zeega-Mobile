@@ -11,7 +11,7 @@ exports.config = {
   },
 
   api: {
-    host: "dev.zeega.com/jmongo/web",
+    host: "mongoweb.zeega.com",
     protocol: "http"
   },
 

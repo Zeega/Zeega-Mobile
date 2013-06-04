@@ -19,7 +19,7 @@
       {{#if params.tags }}
       #{{params.tags}} &darr;
       {{else}}
-      Latest Zeegas &darr;
+      Featured Zeegas &darr;
       {{/if}}
     </h1> 
 
@@ -33,7 +33,7 @@
         <div class="info-overlay">
             <div class="left-column">
               <a href="/profile/{{user.id}}" >
-                <div class="profile-token"><img src="{{user.thumbnail_url}}"></div>
+                <div class="profile-token" style="background-image: url({{ user.thumbnail_url }});"></div>
               </a>
             </div>
             <div class="right-column">
@@ -57,7 +57,7 @@
               
         
         </div>
-        <a href="http://zeega.com/m/{{id}}" class="mobile-play"></a>
+        <a href="/m/{{id}}" class="mobile-play"></a>
 
       </article>
     {{/each}}

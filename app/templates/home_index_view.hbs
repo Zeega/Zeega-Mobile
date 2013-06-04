@@ -19,7 +19,7 @@
       {{#if params.tags }}
       #{{params.tags}} &darr;
       {{else}}
-      Latest Zeegas &darr;
+      Featured Zeegas &darr;
       {{/if}}
     </h1> 
 
@@ -33,7 +33,7 @@
         <div class="info-overlay">
             <div class="left-column">
               <a href="/profile/{{user_id}}" >
-                <div class="profile-token"><img src="{{user_thumbnail}}"></div>
+                <div class="profile-token" style="background-image: url({{ user_thumbnail }});"></div>
               </a>
             </div>
             <div class="right-column">

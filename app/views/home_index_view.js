@@ -8,7 +8,7 @@ module.exports = BaseView.extend({
             $(".join").hide();
         }
 
-        if( !this.collection.meta.authenticated ){
+        if( this.collection.meta.authenticated ){
             $(".join").hide();
         }
     }

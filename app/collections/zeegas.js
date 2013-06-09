@@ -4,12 +4,17 @@ var Zeega = require('../models/zeega'),
 module.exports = Base.extend({
   model: Zeega,
   url: function() {
-      
-    if ( this.params.user == -1 ) {
-        url = '/api/projects/search?limit=5&sort=date-desc&tags=homepage';
+    
 
+    if ( this.params.tags ) {
+        url = '/api/projects/search?limit=3&sort=date-desc';
     } else {
-        url = '/api/projects/search?limit=5&sort=date-desc';
+        url = '/api/projects/search?limit=3&sort=date-desc&'
+        _.each( this.options.params, function( value, key ) {
+            if ( value !== "" && value !== null ) {
+                url += key + "=" + ( _.isFunction( value ) ? value() : value ) + "&";
+            }
+        });
     }
 
 
@@ -18,7 +23,7 @@ module.exports = Base.extend({
   },
 
   comparator: function( zeega ){
-    return 1000000 - zeega.get("views");
+    return - zeega.get("views");
   },
   parse: function( response ){
     this.meta.authenticated = response.request.user.authenticated;

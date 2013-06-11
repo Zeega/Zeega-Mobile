@@ -23,11 +23,14 @@ module.exports = BaseAppView.extend({
     window.scrollTo(0, 1);
   },
 
+  
+
   postInitialize: function() {
     var closeMessage = $.proxy( this.closeMessage, this),
         goHome = $.proxy( this.goHome, this),
         closeCoffin =  $.proxy( this.closeCoffin, this);
 
+      
 
         Hammer($(".message-overlay")[0]).on("tap", function(event) {
           closeMessage();

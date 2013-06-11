@@ -12,7 +12,7 @@ module.exports = BaseView.extend({
                 page: this.collection.options.page,
                 user: this.collection.options.user,
                 tags: this.collection.options.tags
-            }
+            };
         }
         this.collection.options.params.page++;
 
@@ -32,6 +32,33 @@ module.exports = BaseView.extend({
         if( this.collection.meta.authenticated ){
             $(".join").hide();
         }
+
+        var onScroll = $.proxy( function(e){ this.onScroll(e); }, this );
+        $(window).scroll( onScroll );
+
+    },
+    onScroll: function(e){
+
+          var a = $(window).scrollTop() + $(window).innerHeight();
+          var b = $("body")[0].scrollHeight;
+          
+          if( a > b - 500  && this.collection ){
+            if( this.collection.meta.more){
+              this.collection.meta.more = false;
+              this.collection.on("sync", function(collection, response){
+                $(".loading").hide();
+                this.render();
+                if(response.projects.length < this.collection.limit ){
+                  $(".footer").show();
+                }
+
+              }, this );
+              this.$(".zeegas-wrapper").append("<div class='zeega-card'><article class='loading'></article> </div>");
+              this.loadMore();
+            } else{
+              $(".footer").show();
+            }
+          }
     }
 });
 module.exports.id = "HomeIndexView";

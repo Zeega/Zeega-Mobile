@@ -30,15 +30,9 @@ module.exports = BaseView.extend({
               this.collection.on("sync", function(collection, response){
                 $(".loading").hide();
                 this.render();
-                if(response.projects.length < this.collection.limit ){
-                  $(".footer").show();
-                }
-
               }, this );
               this.$(".zeegas-wrapper").append("<div class='zeega-card'><article class='loading'></article> </div>");
               this.loadMore();
-            } else{
-              $(".footer").show();
             }
           }
     },

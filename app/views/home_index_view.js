@@ -43,20 +43,14 @@ module.exports = BaseView.extend({
           var b = $("body")[0].scrollHeight;
           
           if( a > b - 500  && this.collection ){
-            if( this.collection.meta.more){
+            if( this.collection.meta.more && this.collection.length < 20 ){
               this.collection.meta.more = false;
               this.collection.on("sync", function(collection, response){
                 $(".loading").hide();
                 this.render();
-                if(response.projects.length < this.collection.limit ){
-                  $(".footer").show();
-                }
-
               }, this );
               this.$(".zeegas-wrapper").append("<div class='zeega-card'><article class='loading'></article> </div>");
               this.loadMore();
-            } else{
-              $(".footer").show();
             }
           }
     }

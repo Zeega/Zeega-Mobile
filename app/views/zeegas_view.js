@@ -33,7 +33,10 @@ module.exports = BaseView.extend({
               }, this );
               this.$(".zeegas-wrapper").append("<div class='zeega-card'><article class='loading'></article> </div>");
               this.loadMore();
+            } else {
+              $(".footer").show();
             }
+
           }
     },
     postRender: function() {

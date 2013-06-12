@@ -2,11 +2,7 @@ var BaseView = require("./base_view");
 
 module.exports = BaseView.extend({
     className: "home_index_view",
-    events: {
-        "click .more" : "loadMore"
-    },
     loadMore: function(){
-        $(".loading").show();
         if( !this.collection.options.params ){
             this.collection.options.params ={
                 page: this.collection.options.page,
@@ -46,13 +42,11 @@ module.exports = BaseView.extend({
             if( this.collection.meta.more && this.collection.length < 20 ){
               this.collection.meta.more = false;
               this.collection.on("sync", function(collection, response){
-                $(".loading").hide();
+                $(".loading-card").remove();
                 this.render();
               }, this );
-              this.$(".zeegas-wrapper").append("<div class='zeega-card'><article class='loading'></article> </div>");
+              this.$(".zeegas-wrapper").append("<div class='zeega-card loading-card'><article class='loading'></article> </div>");
               this.loadMore();
-            } else {
-              $(".footer").show();
             }
           }
     }

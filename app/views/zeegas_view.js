@@ -3,7 +3,6 @@ var BaseView = require("./base_view");
 module.exports = BaseView.extend({
   className: "zeegas_view",
     loadMore: function(){
-        $(".loading").show();
         if( !this.collection.options.params ){
             this.collection.options.params ={
                 page: this.collection.options.page,
@@ -24,19 +23,14 @@ module.exports = BaseView.extend({
           var a = $(window).scrollTop() + $(window).innerHeight();
           var b = $("body")[0].scrollHeight;
           
-          if( a > b - 500  && this.collection ){
-            if( this.collection.meta.more){
-              this.collection.meta.more = false;
-              this.collection.on("sync", function(collection, response){
-                $(".loading").hide();
-                this.render();
-              }, this );
-              this.$(".zeegas-wrapper").append("<div class='zeega-card'><article class='loading'></article> </div>");
-              this.loadMore();
-            } else {
-              $(".footer").show();
-            }
-
+          if( a > b - 500  && this.collection && this.collection.meta.more ){
+            this.collection.meta.more = false;
+            this.collection.on("sync", function(collection, response){
+              $(".loading-card").hide();
+              this.render();
+            }, this );
+            this.$(".zeegas-wrapper").append("<div class='zeega-card loading-card'><article class='loading'></article> </div>");
+            this.loadMore();
           }
     },
     postRender: function() {

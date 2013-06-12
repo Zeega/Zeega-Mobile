@@ -3,7 +3,7 @@ var BaseView = require("./base_view");
 module.exports = BaseView.extend({
   className: "zeegas_view",
     loadMore: function(){
-        console.log(this.collection);
+        $(".loading").show();
         if( !this.collection.options.params ){
             this.collection.options.params ={
                 page: this.collection.options.page,

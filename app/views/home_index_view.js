@@ -6,7 +6,7 @@ module.exports = BaseView.extend({
         "click .more" : "loadMore"
     },
     loadMore: function(){
-
+        $(".loading").show();
         if( !this.collection.options.params ){
             this.collection.options.params ={
                 page: this.collection.options.page,

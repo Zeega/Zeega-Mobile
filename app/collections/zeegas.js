@@ -19,6 +19,27 @@ module.exports = Base.extend({
         });
     }
 
+    // this is absurd!
+
+    if( this.params && this.params.tags ){
+      if( this.params.tags == "homepage" ){
+
+        this.meta.headline = "Recent Zeegas";
+      } else {
+        this.meta.headline = "#" + this.params.tags;
+      }
+
+    } else if( this.options && this.options.params && this.options.params.tags){
+      if( this.options.params.tags == "homepage" ){
+
+        this.meta.headline = "Recent Zeegas";
+      } else {
+        this.meta.headline = "#" + this.params.options.tags;
+      }
+    } else {
+      this.meta.headline = "Recent Zeegas";
+    }
+
 
     return url;
     

@@ -34,7 +34,7 @@ module.exports = Base.extend({
 
         this.meta.headline = "Recent Zeegas";
       } else {
-        this.meta.headline = "#" + this.params.options.tags;
+        this.meta.headline = "#" + this.options.params.tags;
       }
     } else {
       this.meta.headline = "Recent Zeegas";

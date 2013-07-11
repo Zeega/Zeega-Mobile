@@ -12,7 +12,16 @@
           </div>
 </header>
 
-
+<div class ="tags-wrapper-top">
+    <span class="tags">
+        <h1>
+            <a href="/tag/bestof" >#bestof</a>
+            <a href="/tag/stories" >#stories</a>
+            <a href="/tag/funny" >#funny</a>
+            <a href="/tag/music" >#music</a>
+        </h1>
+    </span>
+</div>
 
 <div class="zeegas-wrapper">
     <h1>
@@ -28,7 +37,7 @@
       {{/if}}
         <div class="info-overlay">
             <div class="left-column">
-              <a href="/profile/{{user.id}}" >
+              <a href="/@{{user.username}}" >
                 <div class="profile-token" style="background-image: url({{ user.thumbnail_url }});"></div>
               </a>
             </div>

@@ -11,7 +11,7 @@ exports.config = {
   },
 
   api: {
-    host: "zeega.com",
+    host: "staging.zeega.com",
     protocol: "http"
   },
 

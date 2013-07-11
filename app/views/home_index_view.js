@@ -39,7 +39,7 @@ module.exports = BaseView.extend({
           var b = $("body")[0].scrollHeight;
           
           if( a > b - 500  && this.collection ){
-            if( this.collection.meta.more && this.collection.length < 20 ){
+            if( this.collection.meta.more && this.collection.length < 40 ){
               this.collection.meta.more = false;
               this.collection.on("sync", function(collection, response){
                 $(".loading-card").remove();
